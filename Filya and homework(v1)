@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int k;
+
+int main() {
+    int t = 0, n = 0;
+    bool yes=true;
+    bool yes2=true;
+    cin >> t;
+    set<int> s;
+
+    for (int x = 0; x < t; x++) {
+        cin >> k;
+        s.insert(k);
+    }
+
+    int arr[s.size()], y = 0;
+    for (auto i = s.begin(); i != s.end(); i++) {
+        arr[y++] = *i;
+    }
+    t = s.size();
+    if ( t==1) {
+        cout << "YES" << endl;
+        exit(0);
+    }
+    n = arr[t / 2] - arr[0];
+    for (int j = 0; j < t / 2; ++j) {
+        if (arr[j] != arr[t / 2]) {
+            arr[j] += n;
+            if (arr[j] == arr[t / 2]) yes=false;
+            else {
+                cout << "NO" << endl;
+                exit(0);
+            }
+        }
+        else yes=false;
+    }
+    for (int k = (t / 2); k < t; ++k) {
+        if (arr[k] != arr[t / 2]) {
+            arr[k] -= n;
+            if (arr[k] == arr[t / 2]) yes2=false;
+            else {
+                cout << "NO" << endl;
+                exit(0);
+            }
+        }
+        else yes2=false;
+    }
+
+    if (yes==false && yes2==false) cout << "YES" << endl;
+
+}
