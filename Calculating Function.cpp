@@ -1,6 +1,4 @@
-//
-// Created by Rawhatur Rabbi Rafin on 2/20/2020.
-//
+
 #include <bits/stdc++.h>
 using namespace std;
 long long  a;
